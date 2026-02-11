@@ -1,4 +1,6 @@
-export const config = { runtime: "edge" };
+export const config = {
+  runtime: "edge",
+};
 
 const EDGES = [61, 21, 5, 7];
 const STREAM_PATH = "max5-city23?aggregator=C23-homepage";
@@ -27,15 +29,29 @@ async function fetchWithTimeout(url, timeout = 5000) {
 }
 
 export default async function handler() {
-  const url = "https://edge61.stream.maxfive.com/max5-city23?aggregator=C23-homepage";
-  const res = await fetch(url, { headers: { "Icy-MetaData": "1" } });
+  let response = null;
 
-  return new Response(res.body, {
-    status: res.status,
-    headers: {
-      "Content-Type": "audio/mpeg",
-      "Cache-Control": "no-cache",
-      "Access-Control-Allow-Origin": "*"
-    }
-  });
+  for (const edge of EDGES) {
+    const url = `${BASE}${edge}.stream.maxfive.com/${STREAM_PATH}`;
+
+    try {
+      const res = await fetchWithTimeout(url);
+      if (res.ok && res.body) {
+        response = res;
+        break;
+      }
+    } catch (_) {}
+  }
+
+  if (!response) {
+    return new Response("Stream unavailable", { status: 502 });
+  }
+
+  const headers = new Headers();
+  headers.set("Content-Type", response.headers.get("Content-Type") || "audio/mpeg");
+  headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
+  headers.set("Pragma", "no-cache");
+  headers.set("Access-Control-Allow-Origin", "*");
+
+  return new Response(response.body, { status: 200, headers });
 }
