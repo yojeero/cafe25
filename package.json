@@ -1,0 +1,9 @@
+{
+    "name": "cafe-25-site",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "update-sw": "node scripts/update-sw-revision.js",
+        "predeploy": "node scripts/update-sw-revision.js"
+    }
+}
