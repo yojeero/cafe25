@@ -5,73 +5,114 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>city23</title>
-  <meta name="keywords" content="City23, chillout, lounge, Pop, Disco, digital radio, online, Vienna, online radio">
-  <meta name="description" content="city23 Radio">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Café 25</title>
+  <meta name="keywords" content="flac, chillout, Pop, Disco, digital radio, online, online radio">
+  <meta name="description" content="city23 premium radio from Vienna">
+
+  <!-- Google font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
 
   <!-- PWA icons -->
   <link rel="icon" href="./images/fav.svg" type="svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
 
-  <!-- style CSS -->
   <link rel="stylesheet" href="./css/style.css">
+<link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
 
-  <!-- for PWA -->
-  <link rel="manifest" href="./manifest.webmanifest">
-  <script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script>
-
-</head>
-
-<body class="bg-stone-100 city city-mob overflow-hidden h-full">
+<body>
 
   <!-- LOADER -->
-  <div class="loader fixed inset-0 flex items-center justify-center bg-white transition-opacity duration-300">
-    <div class="w-8 h-8 border-2 border-gray-300 border-t-lime-700 rounded-full animate-spin"></div>
-  </div>
+   <div class="loader">
 
-  <!-- PAGE -->
-  <main class="grid size-full min-h-dvh content-end lg:content-center lg:justify-self-center">
+  <svg viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"
+      stroke-dasharray="40 22">
+      <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="1.6s"
+        repeatCount="indefinite" />
+    </circle>
+  </svg>
 
-    <div
-      class="grid w-full max-w-3xl m-auto place-content-evenly lg:border lg:border-stone-200 lg:rounded-3xl lg:outline-2 lg:outline-stone-50 lg:outline-offset-4 lg:outline-solid">
+</div>
 
-      <!-- SHOT -->
-      <div
-        class="grid place-content-center overflow-hidden h-full lg:max-h-100 lg:rounded-t-3xl lg:border lg:border-white">
+  <!-- PAGE-->
+ <main class="app">
 
-        <img class="w-full h-full object-cover" src="./images/cup.webp" alt="city23 radio">
-      </div>
+  <div class="app-wrap">
 
-      <!-- PLAYER -->
-      <div class="grid grid-cols-2 lg:grid-cols-[2fr_2fr_3fr] w-full h-46 lg:h-42 lg:rounded-b-3xl bg-stone-100">
+  <div class="app-card">   
 
-        <audio id="audio">
-          <source src="https://live.stream.maxfive.com/max5-city23?aggregator=liveradio" type="audio/mp3">
+    <header class="app-header"> 
+
+      <div class="header-bg">
+
+        <svg class="mr-2" viewBox="0 0 512 279.06">
+          <path fill="#fe0000"
+            d="M31.57 0h448.86C497.79 0 512 14.25 512 31.57v215.92c0 17.33-14.25 31.57-31.57 31.57H31.57C14.25 279.06 0 264.85 0 247.49V31.57C0 14.21 14.21 0 31.57 0z" />
+          <path fill="#fff"
+            d="M161.44 197.21H93.11V81.85h34.16v85.83h34.17v29.53zm15.38 0V81.85h34.16v115.36h-34.16zM292.3 81.85h36.05l-26.48 115.36h-49.88L225.51 81.85h36.04l14.52 73.28h1.54l14.69-73.28zm118.9 71.8h-34.16v15.95h41.85v27.61h-76.02V81.85h75.17l-3.74 27.53h-36.72l-.54 17.51h34.16v26.76z" />
+        </svg>
+
+        <!-- <svg class="mr-2" viewBox="0 0 16 16">
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="#7dc4e4" d="M1.5 2.5h11m-11 6h5" />
+            <path stroke="#eed49f" d="M1.5 4.5h5m3 4h5" />
+            <path stroke="#c6a0f6" d="M9.5 4.5h5m-13 2h5m-5 6h5" />
+            <path stroke="#ed8796" d="M9.5 6.5h5m-13 4h11m-11 4h5" />
+          </g>
+        </svg> -->
+
+          premium café
+
+          </div>
+   
+        <div id="trackPanel" class="app-track px-2">
+
+          <div class="marquee py-1">
+            <span id="trackInfo" class="w-full">Artist - Song Title</span>
+          </div>
+          
+        </div>
+
+    </header>
+
+    <section class="app-shot">
+      <img src="./images/we.webp" alt="">
+    </section>
+
+    <footer class="app-player">
+
+        <audio id="audio" preload="none">
+          <source src="/api/city23" type="audio/mpeg">
         </audio>
 
-        <div
-          class="play grid cursor-pointer place-content-center place-items-center text-stone-50 transition-all duration-300 ease-in-out bg-lime-600/60 hover:bg-amber-700/40 lg:border-bl lg:rounded-bl-3xl">
+      <div class="player-btn player-btn-play">
 
-          <div id="playIcon" class="playIcon stopIcon hover:cursor-pointer">
-            <svg class="w-22 h-22" viewBox="0 0 24 24">
+          <div id="playIcon">
+          <!-- <div id="playIcon" class="playIcon stopIcon"> -->
+            <svg viewBox="0 0 24 24">
               <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"
                 d="M18.89 12.846c-.353 1.343-2.023 2.292-5.364 4.19c-3.23 1.835-4.845 2.752-6.146 2.384a3.25 3.25 0 0 1-1.424-.841C5 17.614 5 15.743 5 12s0-5.614.956-6.579a3.25 3.25 0 0 1 1.424-.84c1.301-.37 2.916.548 6.146 2.383c3.34 1.898 5.011 2.847 5.365 4.19a3.3 3.3 0 0 1 0 1.692"
                 color="currentColor" />
             </svg>
           </div>
 
-          <div id="stopIcon" class="stopIcon hover:cursor-pointer" style="display: none;">
-            <svg class="w-22 h-22" viewBox="0 0 24 24">
+          <div id="stopIcon" style="display: none;">
+          <!-- <div id="stopIcon" class="stopIcon" style="display: none;"> -->
+            <svg viewBox="0 0 24 24">
               <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"
                 d="M4 12c0-3.28 0-4.919.814-6.081a4.5 4.5 0 0 1 1.105-1.105C7.08 4 8.72 4 12 4s4.919 0 6.081.814a4.5 4.5 0 0 1 1.105 1.105C20 7.08 20 8.72 20 12s0 4.919-.814 6.081a4.5 4.5 0 0 1-1.105 1.105C16.92 20 15.28 20 12 20s-4.919 0-6.081-.814a4.5 4.5 0 0 1-1.105-1.105C4 16.92 4 15.28 4 12"
                 color="currentColor" />
             </svg>
           </div>
-        </div>
+        
+      </div>
 
-        <div id="waveIcon" class="grid pointer-events-none place-content-center place-items-center text-stone-500">
-          <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      <div class="player-btn">
+
+        <div id="waveIcon" class="wave-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M2 10v3">
               <animate attributeName="d" values="M2 10v3; M2 5v13; M2 10v3" dur="1s" repeatCount="indefinite"
@@ -100,18 +141,55 @@
           </svg>
         </div>
 
-        <div class="text-stone-700 lg:grid hidden pointer-events-none place-content-center">
-          <h3 class="p-0 m-0 text-lg leading-none tracking-widest uppercase">CITY23</h3>
-          <p class="p-0 m-0 text-lg leading-none tracking-widest capitalize">premium radio</p>
+      </div>
+
+      <div class="player-btn">
+
+        <div id="infoIcon" class="hd-icon">
+
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-hd-icon lucide-hd">
+            <path d="M10 12H6" />
+            <path d="M10 15V9" />
+            <path d="M14 14.5a.5.5 0 0 0 .5.5h1a2.5 2.5 0 0 0 2.5-2.5v-1A2.5 2.5 0 0 0 15.5 9h-1a.5.5 0 0 0-.5.5z" />
+            <path d="M6 15V9" />
+            <rect x="2" y="5" width="20" height="14" rx="2" />
+          </svg>
+
         </div>
 
-      </div><!-- end player -->
+      </div>
 
-    </div><!-- end about -->
+    </footer>
 
-    <button id="install" style="display: none;">Install city23</button>
+  </div>
 
-  </main>
+  <aside class="clients">
+  
+    <div class="clients-inner">
+      <img src="./images/uniqlo.svg" alt="Uniqlo">
+      <img src="./images/puma.svg" alt="Puma">
+      <img src="./images/tesla.svg" alt="Tesla">
+    </div>
+  
+  </aside>
+
+ <button id="install" style="display: none;">Install Cafe 25</button>
+
+</div>
+</main>
+
+    <!-- <div class="text-bg">
+
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="currentColor"
+        d="M10.374 14.349v-3.254h-.021l-1.31 3.254h-.5l-1.311-3.254H7.21v3.254h-.614V9.928h.78l1.405 3.523h.024l1.402-3.523h.783v4.421zm4.012 0h-.623v-.545h-.015c-.175.386-.497.603-.981.603c-.69 0-1.111-.456-1.111-1.195v-2.086h.65v1.958c0 .49.229.753.677.753c.47 0 .753-.33.753-.833v-1.878h.65zm1.781-3.281c.738 0 1.216.416 1.238 1.01h-.611c-.037-.312-.262-.508-.627-.508c-.352 0-.587.175-.587.432c0 .202.145.34.488.42l.515.12c.647.152.894.41.894.875c0 .589-.54.993-1.285.993c-.792 0-1.268-.395-1.328-1.008h.644q.088.504.684.503c.39 0 .632-.166.632-.43c0-.208-.118-.33-.464-.41l-.515-.122c-.602-.141-.9-.435-.9-.904c0-.576.494-.971 1.222-.971m1.76-.794a.375.375 0 1 1 .75 0c0 .208-.165.38-.373.38a.38.38 0 0 1-.376-.38m.052.852h.65v3.223h-.65zm3.395 1.109c-.066-.343-.32-.616-.744-.616c-.502 0-.833.426-.833 1.118c0 .708.334 1.119.84 1.119c.4 0 .662-.224.737-.598H22c-.07.686-.608 1.152-1.37 1.152c-.905 0-1.495-.631-1.495-1.673c0-1.023.59-1.67 1.49-1.67c.815 0 1.312.534 1.369 1.168zM4.608 10.359c-.168.201-.435.36-.702.337c-.035-.272.099-.561.25-.738a1.04 1.04 0 0 1 .696-.367c.029.284-.081.561-.244.769m.24.39c.151.012.585.06.863.477c-.023.018-.515.307-.51.914c.007.725.626.966.631.973c-.005.017-.098.341-.323.677c-.197.295-.4.584-.724.59c-.312.005-.417-.189-.775-.189s-.475.183-.77.194c-.312.012-.55-.312-.746-.607c-.405-.595-.712-1.68-.295-2.41c.202-.365.573-.595.972-.601c.307-.006.59.206.775.206s.515-.247.903-.224" />
+        </svg>
+
+      </div> -->
+
+  <!-- JS -->
 
   <!-- LOADER HIDE -->
   <script>
@@ -123,65 +201,93 @@
     });
   </script>
 
-  <!-- vanilla audio player 23 -->
+  <!-- vanilla radio player v5 -->
+  <script>
+(function () {
+  const audio = document.getElementById("audio");
+  const playIcon = document.getElementById("playIcon");
+  const stopIcon = document.getElementById("stopIcon");
+  const trackInfoEl = document.getElementById("trackInfo");
+
+  let isPlaying = false;
+  let initialized = false;
+
+  function showPlay() {
+    playIcon.style.display = "inline-block";
+    stopIcon.style.display = "none";
+  }
+
+  function showStop() {
+    playIcon.style.display = "none";
+    stopIcon.style.display = "inline-block";
+  }
+
+  function initStream() {
+    if (initialized) return;
+    initialized = true;
+    audio.preload = "auto";
+    audio.crossOrigin = "anonymous";
+    audio.muted = true;
+    audio.play().catch(() => { initialized = false; });
+  }
+
+  playIcon.addEventListener("click", () => {
+    initStream();
+    audio.muted = false;
+    audio.play().then(() => {
+      isPlaying = true;
+      showStop();
+      requestSongInfo();
+    }).catch(() => { isPlaying = false; });
+  });
+
+  stopIcon.addEventListener("click", () => {
+    if (!isPlaying) return;
+    isPlaying = false;
+    audio.muted = true;
+    showPlay();
+  });
+
+  function requestSongInfo() {
+    fetch("https://songservice.radiomax.technology/city23-at/songinfo.json")
+      .then(res => res.ok ? res.json() : null)
+      .then(updateSongInfo)
+      .catch(() => {});
+  }
+
+  function updateSongInfo(data) {
+    if (!data) return;
+    const artist = data.artist || "";
+    const title = data.title || "";
+    trackInfoEl.textContent = artist && title ? `${artist} - ${title}` : "No info";
+  }
+
+  requestSongInfo();
+  setInterval(requestSongInfo, 5000);
+})();
+</script>
+
+  <!-- TRACK INFO TOGGLE -->
   <script>
     (function () {
-      var audio = document.getElementById("audio");
-      var playIcon = document.getElementById("playIcon");
-      var stopIcon = document.getElementById("stopIcon");
-      var waveIcon = document.getElementById("waveIcon");
-      if (!audio || !playIcon || !stopIcon || !waveIcon) return;
+      var infoIcon = document.getElementById("infoIcon");
+      var trackPanel = document.getElementById("trackPanel");
+      if (!infoIcon || !trackPanel) return;
 
-      var isPlaying = false;
-      var initialized = false;
-      var waveAnim = waveIcon.querySelectorAll("animate");
+      var isPanelVisible = false;
 
-      function startWave() { waveAnim.forEach(function (a) { a.beginElement(); }); }
-      function stopWave() { waveAnim.forEach(function (a) { a.endElement(); }); }
-
-      function showPlay() {
-        playIcon.style.display = "block";
-        stopIcon.style.display = "none";
-        stopWave();
-      }
-
-      function showStop() {
-        playIcon.style.display = "none";
-        stopIcon.style.display = "block";
-        startWave();
-      }
-
-      function initStream() {
-        if (initialized) return;
-        initialized = true;
-        audio.preload = "auto";
-        audio.crossOrigin = "anonymous";
-        audio.muted = true;
-        audio.play().catch(function () {
-          initialized = false;
-        });
-      }
-
-      playIcon.addEventListener("click", function () {
-        initStream();
-        audio.muted = false;
-        audio.play().then(function () {
-          isPlaying = true;
-          showStop();
-        }).catch(function () {
-          isPlaying = false;
-        });
-      });
-
-      stopIcon.addEventListener("click", function () {
-        if (!isPlaying) return;
-        isPlaying = false;
-        audio.muted = true;
-        showPlay();
+      infoIcon.addEventListener("click", function () {
+        if (isPanelVisible) {
+          trackPanel.classList.remove("opacity-100", "pointer-events-auto");
+          trackPanel.classList.add("opacity-0", "pointer-events-none");
+        } else {
+          trackPanel.classList.remove("opacity-0", "pointer-events-none");
+          trackPanel.classList.add("opacity-100", "pointer-events-auto");
+        }
+        isPanelVisible = !isPanelVisible;
       });
     })();
   </script>
 
 </body>
-
 </html>
