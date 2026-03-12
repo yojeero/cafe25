@@ -17,8 +17,7 @@ Cafe25 is a minimal, premium online radio player focused on chillout, lounge, po
 
 #### Features
 
-- Play / Pause radio stream   
-- Volume control with default preset   
+- Play / Pause radio stream 
 - Live streaming audio   
 - Current track information display   
 - Real-time audio visualizer (Web Audio API)   
