@@ -1,4 +1,4 @@
-<img src="preview/preview.jpg" width="830">   
+<img src="preview/cafe.jpg" width="100%" max-width="800px">     
 
 ### [Cafe25](https://cafe25.vercel.app/) is a premium Vien city23 radio.     
   

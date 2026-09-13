@@ -1,0 +1,351 @@
+/* prettier-ignore-file */
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply 
+    relative min-h-screen 
+    
+    flex items-center justify-center 
+
+    /* bg-gray-100  */
+  ;
+
+  font-family: "Bitcount Single", system-ui, sans-serif;
+
+  background: radial-gradient(
+    circle at 50% 20%,
+    #f7f3ea,
+    #d8d1c0 60%,
+    #c9c1b0
+  );
+}
+
+button {
+  @apply 
+    focus-visible:outline-none focus-visible:ring-2
+  ;
+}
+
+}
+
+@layer components {
+
+body.loading {
+  @apply 
+    overflow-hidden
+  ;
+}
+
+.loader {
+	@apply 
+    fixed inset-0
+
+    flex items-center justify-center
+
+    bg-stone-100
+
+    z-50
+  ;
+}
+
+.loader-spinner {
+	@apply 
+    w-16 h-16
+
+    border-8 border-gray-200 border-t-rose-600 
+
+    rounded-full
+
+    animate-spin
+  ;
+}
+
+.pic-bg {
+  @apply 
+    absolute hidden size-full
+
+    md:flex
+
+    overflow-hidden
+
+    z-0
+  ;
+}
+
+.pic-bg img {
+  @apply 
+    absolute bottom-0 left-1/2 -translate-x-1/2
+
+    w-[33%]
+
+    object-cover
+  ;
+}
+
+.player {
+  @apply 
+    relative
+
+    w-dvw h-dvh md:w-[380px] md:h-[780px]    
+    
+    flex flex-col
+
+    outline-1 outline-white/74
+
+    md:rounded-[48px]    
+
+    bg-white/40
+
+    backdrop-blur-[12px] md:backdrop-blur-[20px]
+
+    shadow-stone-500/20
+    shadow-[0_10px_30px_rgba(0,0,0,0.1),_0_40px_80px_rgba(0,0,0,0.15)]
+
+    overflow-hidden
+
+    transition-transform transition-opacity duration-500
+
+    z-10
+  ;
+}
+
+.player::after {
+  @apply 
+    absolute inset-0 
+
+    md:rounded-[48px]
+
+    bg-[linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.25)_35%,rgba(255,255,255,0.05)_60%,transparent)]
+
+    pointer-events-none
+  ;
+
+  content: "";
+}
+
+/* 1 */
+.content {
+  @apply   
+    h-full 
+
+    flex flex-col items-center justify-start 
+
+    bg-amber-400/40
+
+    md:rounded-[48px]
+
+    p-6 lg:p-8
+
+    gap-y-4 lg:gap-y-6
+  ;
+}
+
+.logo {
+  @apply    
+    h-16 
+    w-16 
+
+    aspect-square
+
+    self-start flex-shrink-0
+  ;
+}
+
+.logo img {
+  @apply 
+    h-16 w-16  
+
+    rounded-full 
+
+    overflow-hidden
+    
+    cursor-pointer
+      
+    transition duration-300 
+
+    hover:-rotate-12
+  ;
+}
+
+.live-track {
+  @apply 
+    w-full 
+    flex flex-col items-center 
+    flex-shrink-0
+
+    overflow-hidden
+
+    mt-2 
+  ;
+}
+
+#trackInfo {
+  @apply 
+    text-white text-3xl text-center 
+    
+    mt-6
+  ;
+}
+
+.live-track h2 {
+  @apply 
+    text-white/70 text-base tracking-wide text-center 
+    uppercase
+  ;
+}
+
+.cover {
+  @apply 
+    relative
+
+    w-full 
+
+    flex items-center justify-center 
+    flex-1
+
+    min-h-0
+  ;
+} 
+
+.cover-disc {
+  @apply 
+    relative 
+
+    w-[70%] max-w-[280px] aspect-square    
+  ;
+
+    --vinyl-rotation: 0deg;
+  transform: rotate(var(--vinyl-rotation));
+}
+
+.cover-disc::before {
+  @apply 
+    absolute inset-0 
+
+    bg-[url('/images/v6.webp')] 
+    bg-center bg-cover bg-no-repeat
+
+    rounded-full 
+
+    z-0
+  ;
+
+  content: "";
+}
+
+.cover-disc::after {
+  @apply 
+    absolute inset-0 
+    
+    rounded-full 
+    
+    mix-blend-overlay
+  ;
+  
+  content: "";
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255,255,255,0.25),
+    transparent 60%
+  );  
+}
+
+/* 2 */
+.audio-controls {
+  @apply 
+    w-full 
+
+    flex items-center justify-between 
+    flex-shrink-0
+
+    p-6 lg:p-8     
+    gap-x-4 lg:gap-x-6 
+  ;
+}
+
+.play-toggle {
+  @apply 
+    relative
+    
+    h-[72px] w-[72px] 
+
+    flex items-center justify-center 
+
+    rounded-full 
+
+    bg-indigo-600/50
+    outline-3 outline-white/20
+
+    shadow-lg shadow-indigo-700/40
+
+    transition duration-300 
+    
+    hover:bg-indigo-500
+
+    z-10
+  ;  
+} 
+
+.play-toggle::before {
+  @apply 
+    absolute inset-0 
+
+    rounded-full 
+    
+    bg-[linear-gradient(_180deg,_rgba(255,255,255,0.68),_transparent_)]
+
+    pointer-events-none
+  ;
+
+  content: "";
+}
+
+.play svg,
+.stop svg {
+  @apply 
+    absolute inset-0 left-1/2 top-1/2 -translate-1/2
+
+    h-10 w-10 
+
+    text-slate-50
+
+    cursor-pointer
+
+    transition-transform transition-opacity duration-300
+  ;
+}
+
+.play-toggle .play {
+  @apply opacity-100 scale-100;
+}
+
+.play-toggle .stop {
+  @apply opacity-0 scale-75 rotate-90;
+}
+
+.play-toggle.is-playing .play {
+  @apply opacity-0 scale-75 -rotate-90;
+}
+
+.play-toggle.is-playing .stop {
+  @apply opacity-100 scale-100 rotate-0;
+}
+
+.canvas-wrap {
+  @apply 
+    h-24 
+
+    flex self-center justify-center 
+  ;
+}
+
+.canvas {
+  @apply 
+    h-full w-full
+  ;
+
+  transition: opacity 0.8s ease;
+} 
+
+}
